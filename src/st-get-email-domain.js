@@ -16,6 +16,6 @@ import { NotImplementedError } from "../extensions/index.js";
 // }
 export default function getEmailDomain(email) {
   if (email.indexOf("@") === -1) return "";
-  email = email.slice(email.indexOf("@") + 1);
+  email = email.slice(email.lastIndexOf("@") + 1);
   return email;
 }

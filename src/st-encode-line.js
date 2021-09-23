@@ -20,15 +20,19 @@ export default function encodeLine(str) {
   let arr = str.split("");
   str = "";
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == arr[i + 1]) continue;
     let count = 0;
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[i] == arr[j]) count++;
+    for (let j = i; j < arr.length; j++) {
+      if (arr[i] == arr[j]) {
+        count++;
+      } else {
+        break;
+      }
     }
-    if (count > 1) {
-      str = str + count + arr[i];
-    } else if ((count = 1)) {
-      str = str + arr[i];
+    if (count === 1) {
+      str += arr[i];
+    } else if (count > 1) {
+      str += count + arr[i];
+      i += count - 1;
     }
   }
   return str;

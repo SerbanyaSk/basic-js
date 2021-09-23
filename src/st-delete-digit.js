@@ -16,7 +16,7 @@ import { NotImplementedError } from "../extensions/index.js";
 //   // remove line with error and write your code here
 // }
 export default function deleteDigit(n) {
-  if (n % 2 == 0) {
+  if (n % 1 == 0) {
     let maxNumber = 0;
     let arr = String(n).split("");
     for (let i = 0; i < String(n).length; i++) {

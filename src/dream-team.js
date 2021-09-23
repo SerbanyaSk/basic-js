@@ -18,11 +18,12 @@ import { NotImplementedError } from "../extensions/index.js";
 //   // remove line with error and write your code here
 // }
 export default function createDreamTeam(members) {
+  if (Array.isArray(members) === false) return false;
   let arr = [];
   for (let i = 0; i < members.length; i++) {
-    if (typeof members[i] === "string") arr.push(members[i]);
+    if (typeof members[i] === "string")
+      arr.push(members[i].toUpperCase().trim());
   }
-  if (arr.length === 0) return false;
   for (let i = 0; i < arr.length; i++) {
     arr[i] = arr[i].slice(0, 1);
   }
