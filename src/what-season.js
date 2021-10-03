@@ -16,7 +16,9 @@ import { NotImplementedError } from "../extensions/index.js";
 //   // remove line with error and write your code here
 // }
 export default function getSeason(date) {
-  if (isNaN(Date.parse(date))) return "With invalid date!";
+  if (typeof date !== "object") return "Unable to determine the time of year!";
+  if (new Date(date).toString() === "Invalid Date")
+    return new Error("Invalid Date!");
   let month = date.getMonth();
   switch (month) {
     case 11:
